@@ -11,7 +11,8 @@ Flux Data flow: Actions
   The Store is the core of the entire application
     it maintains that state object and responds to actions
     that are being dispatched
-    it handsle these responses by calllong reducer function
+    it handsle these responses by calllong reducer function.
+    
 Flux data flow: Store
   maintains the store , responsds to actions by calling a reducer
   reducer takes an old state and action, return a new value
