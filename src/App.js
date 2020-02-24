@@ -1,31 +1,38 @@
 import React, {Component} from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Axios from 'axios';
+import TopNav from './components/TopNav';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     //ini state
-    this.state = { vehicleData: null};
+    this.state = { vehicleData: null };
   }
 
-  //lifecycle for data load
-  componentDidMount(){
+  // lifecycle for data load
+  componentDidMount() {
     Axios.get("http://localhost:3001/vehicles")
       .then(res => {
         console.log(res.data);
-        this.setState({vehicleData: res.data});
+        this.setState({ vehicleData: res.data });
       })
       .catch(err => console.log(err));
   }
-    render() {
-      return (
-        <div className = "App">
 
+  render() {
+    if (this.state.vehicleData){
+      return (
+        <div className="App">
+          <TopNav />
         </div>
+      );
+    } else {
+      return (
+        <h4> loading data</h4>
       )
     }
+  }
 }
 
 export default App;
