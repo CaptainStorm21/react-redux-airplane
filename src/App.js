@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
-import './App.css';
-import Axios from 'axios';
-import TopNav from './components/TopNav';
+import React, { Component } from "react";
+import "./App.css";
+import Axios from "axios";
+import TopNav from "./components/TopNav";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -21,16 +23,16 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.vehicleData){
+    if (this.state.vehicleData) {
       return (
         <div className="App">
           <TopNav />
+          <Home />
+          <Footer />
         </div>
       );
     } else {
-      return (
-        <h4> loading data</h4>
-      )
+      return <h4> loading data</h4>;
     }
   }
 }
